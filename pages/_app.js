@@ -1,36 +1,9 @@
-import 'nextra-theme-blog/style.css'
-import Head from 'next/head'
-
-import '../styles/main.css'
-
-export default function Nextra({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="RSS"
-          href="/feed.xml"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter-roman.latin.var.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </Head>
-      <Component {...pageProps} />
-    </>
-  )
-}
-
 import { useEffect } from "react";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    if (window?.Pi?.init) {
+    if (typeof window !== "undefined" && window.Pi?.init) {
       window.Pi.init({
         version: "2.0",
       });
@@ -41,4 +14,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
